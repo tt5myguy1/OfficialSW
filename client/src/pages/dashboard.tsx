@@ -145,7 +145,7 @@ export default function Dashboard() {
             >
               <div className="flex-1 bg-black/40 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
                 <iframe 
-                  src="https://doge-v41.vercel.app" 
+                  src="https://ultraviolet-vercel-five.vercel.app" 
                   className="w-full h-full border-0"
                   title="Internet Browser"
                 />
