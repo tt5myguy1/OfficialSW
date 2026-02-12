@@ -247,6 +247,33 @@ export default function Dashboard() {
                 </div>
 
                 <div className="glass-panel p-8 rounded-3xl flex flex-col justify-center gap-4">
+                  <div className="flex flex-col gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <Shield className="w-5 h-5 text-red-500" />
+                        <span className="font-bold">Panic Key</span>
+                      </div>
+                      <button 
+                        onClick={() => setPanicEnabled(!panicEnabled)}
+                        className={`w-12 h-6 rounded-full transition-all relative ${panicEnabled ? 'bg-red-500' : 'bg-white/10'}`}
+                      >
+                        <div className={`absolute top-1 bottom-1 w-4 rounded-full bg-white transition-all ${panicEnabled ? 'right-1' : 'left-1'}`} />
+                      </button>
+                    </div>
+                    
+                    {panicEnabled && (
+                      <div className="flex items-center justify-between pt-2 border-t border-white/5">
+                        <span className="text-sm text-white/60">Trigger Key:</span>
+                        <button 
+                          onClick={() => setIsSettingPanicKey(true)}
+                          className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-xs font-mono transition-colors border border-white/10"
+                        >
+                          {isSettingPanicKey ? 'PRESS ANY KEY...' : panicKey.toUpperCase()}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
                   <button 
                     onClick={() => window.open('https://discord.gg/MqcHwuaYfM1', '_blank')}
                     className="flex items-center justify-center gap-3 p-4 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] transition-all text-white font-bold"
