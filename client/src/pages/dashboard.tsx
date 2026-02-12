@@ -10,20 +10,27 @@ type Theme = 'default' | 'light' | 'dark';
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabId>('home');
   const [runningItem, setRunningItem] = useState<{ name: string; link: string } | null>(null);
-  const [theme, setTheme] = useState<Theme>('default');
-  const [panicEnabled, setPanicEnabled] = useState(false);
-  const [panicKey, setPanicKey] = useState('Escape');
+  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('shadow-theme') as Theme) || 'default');
+  const [panicEnabled, setPanicEnabled] = useState(() => localStorage.getItem('shadow-panic-enabled') === 'true');
+  const [panicKey, setPanicKey] = useState(() => localStorage.getItem('shadow-panic-key') || 'Escape');
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('shadow-theme', theme);
+    localStorage.setItem('shadow-panic-enabled', panicEnabled.toString());
+    localStorage.setItem('shadow-panic-key', panicKey);
+  }, [theme, panicEnabled, panicKey]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isSettingPanicKey) {
         setPanicKey(e.key);
         setIsSettingPanicKey(false);
+        e.preventDefault();
         return;
       }
       if (panicEnabled && e.key === panicKey) {
-        window.location.href = 'https://clever.com';
+        window.location.replace('https://clever.com');
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -282,7 +289,17 @@ export default function Dashboard() {
                     <span>Join Discord</span>
                   </button>
                   <button 
-                    onClick={() => alert('DMCA Policy: Please note that I dont claim ownership for any games. If you believe that any copyright infringement exists on the Site, please use the following process to notify us. We will act expeditiously to remove infringing material once informed. All claims of copyright infringement should be in writing and should be directed to: E-mail: swsite@outlook.com Your notice must contain the following information: 1) Your physical or electronic signature (as either the owner of an exclusive right that is allegedly infringed or as a person authorized to act on behalf of such owner). 2) Identification of the copyrighted work claimed to have been infringed or, if multiple copyrighted works at a single online site are covered by a single claim, a representative list of such works at that online site. 3) Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit us to locate the material. 4) Information reasonably sufficient to permit us to contact you, such as an address, telephone number and, if available, an electronic mail address. 5) A statement that you believe in good faith that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law. 6) A statement that the information in the notice is accurate and that, under penalty of perjury, you are the owner of an exclusive right that is allegedly infringed or are authorized to act on behalf of such owner.')}
+                    onClick={() => {
+                      const dmcaText = `DMCA Policy: Please note that I don't claim ownership for any games. If you believe that any copyright infringement exists on the Site, please use the following process to notify us. We will act expeditiously to remove infringing material once informed. All claims of copyright infringement should be in writing and should be directed to: E-mail: swsite@outlook.com Your notice must contain the following information: 
+
+1) Your physical or electronic signature (as either the owner of an exclusive right that is allegedly infringed or as a person authorized to act on behalf of such owner). 
+2) Identification of the copyrighted work claimed to have been infringed or, if multiple copyrighted works at a single online site are covered by a single claim, a representative list of such works at that online site. 
+3) Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled and information reasonably sufficient to permit us to locate the material. 
+4) Information reasonably sufficient to permit us to contact you, such as an address, telephone number and, if available, an electronic mail address. 
+5) A statement that you believe in good faith that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law. 
+6) A statement that the information in the notice is accurate and that, under penalty of perjury, you are the owner of an exclusive right that is allegedly infringed or are authorized to act on behalf of such owner.`;
+                      alert(dmcaText);
+                    }}
                     className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/10"
                   >
                     <Shield className="w-5 h-5" />
