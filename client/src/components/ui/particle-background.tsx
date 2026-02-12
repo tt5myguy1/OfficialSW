@@ -44,24 +44,23 @@ export function ParticleBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw background gradient
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, '#020617'); // Very dark blue
-      gradient.addColorStop(1, '#0f172a'); // Slightly lighter blue
-      ctx.fillStyle = gradient;
+      const rootStyles = getComputedStyle(document.documentElement);
+      const bgColor = rootStyles.getPropertyValue('--background-hex').trim() || '#020617';
+      const particleColor = rootStyles.getPropertyValue('--primary-hex').trim() || '100, 200, 255';
+      
+      ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
 
-        // Bounce off walls
         if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(100, 200, 255, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${particleColor}, ${p.opacity})`;
         ctx.fill();
       });
 
