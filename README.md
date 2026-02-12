@@ -2,4 +2,4 @@
 # Shadow Proxy
 Shadow Proxy is a site built on Replit that gives you access to tons of games, an unrestricted internet browser, and online chat.
 
-This site was designed for Vercel, so I recommend going to the official site on vercel https://officalsw.vercel.app
+This site was designed for Vercel, so I recommend going to the official site on vercel https://officialsw.vercel.app
