@@ -11,6 +11,24 @@ export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabId>('home');
   const [runningItem, setRunningItem] = useState<{ name: string; link: string } | null>(null);
   const [theme, setTheme] = useState<Theme>('default');
+  const [panicEnabled, setPanicEnabled] = useState(false);
+  const [panicKey, setPanicKey] = useState('Escape');
+  const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isSettingPanicKey) {
+        setPanicKey(e.key);
+        setIsSettingPanicKey(false);
+        return;
+      }
+      if (panicEnabled && e.key === panicKey) {
+        window.location.href = 'https://clever.com';
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [panicEnabled, panicKey, isSettingPanicKey]);
 
   useEffect(() => {
     const root = window.document.documentElement;
