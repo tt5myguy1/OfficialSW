@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { TopBar, type TabId } from "@/components/ui/top-bar";
-import { Gamepad2, Globe, LayoutGrid, MoreHorizontal, Construction, MessageSquare, Sun, Moon, Palette, Shield, Disc } from "lucide-react";
+import { Gamepad2, Globe, LayoutGrid, MoreHorizontal, Construction, MessageSquare, Sun, Moon, Palette, Shield, Disc, Maximize2 } from "lucide-react";
 import { games, apps } from "@/lib/index";
 
 type Theme = 'default' | 'light' | 'dark';
@@ -50,13 +50,38 @@ export default function Dashboard() {
     setRunningItem(item);
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const toggleFullscreen = () => {
+    if (!containerRef.current) return;
+    if (!document.fullscreenElement) {
+      containerRef.current.requestFullscreen().catch(err => {
+        console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   if (runningItem) {
     return (
-      <div className="fixed inset-0 bg-black z-[100] flex flex-col">
+      <div ref={containerRef} className="fixed inset-0 bg-black z-[100] flex flex-col">
         <div className="p-2 border-b border-white/10 flex justify-between items-center bg-black/50 backdrop-blur-md">
-          <span className="text-white font-mono text-sm uppercase tracking-widest">{runningItem.name}</span>
+          <div className="flex items-center gap-4">
+            <span className="text-white font-mono text-sm uppercase tracking-widest">{runningItem.name}</span>
+            <button 
+              onClick={toggleFullscreen}
+              className="p-1 rounded hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+              title="Toggle Fullscreen"
+            >
+              <Maximize2 className="w-4 h-4" />
+            </button>
+          </div>
           <button 
-            onClick={() => setRunningItem(null)}
+            onClick={() => {
+              if (document.fullscreenElement) document.exitFullscreen();
+              setRunningItem(null);
+            }}
             className="px-4 py-1 rounded bg-white/10 hover:bg-white/20 text-white text-xs transition-colors"
           >
             EXIT
@@ -66,6 +91,7 @@ export default function Dashboard() {
           src={runningItem.link} 
           className="flex-1 w-full h-full border-0"
           title={runningItem.name}
+          allow="fullscreen"
         />
       </div>
     );
