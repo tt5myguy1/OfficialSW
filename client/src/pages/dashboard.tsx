@@ -18,6 +18,12 @@ export default function Dashboard() {
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
 
   const news = [
+   {
+      id: 1,
+      title: "A Thank You... or smth idrk",
+      date: "Feb 24, 2026",
+      content: "Thanks for using my site lol. I hope you enjoy it. If you have any issues, please join the discord and report it. I will try to fix it as soon as possible. (That was the reccommended thing to say by the uhh.. 'thing', idk.)"
+    },
     {
       id: 1,
       title: "V1.0.4 Update",
