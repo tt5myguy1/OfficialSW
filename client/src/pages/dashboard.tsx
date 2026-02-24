@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ParticleBackground } from "@/components/ui/particle-background";
 import { TopBar, type TabId } from "@/components/ui/top-bar";
-import { Gamepad2, Globe, LayoutGrid, MoreHorizontal, Construction, MessageSquare, Sun, Moon, Palette, Shield, Disc, Maximize2 } from "lucide-react";
+import { Gamepad2, Globe, LayoutGrid, MoreHorizontal, MessageSquare, Sun, Moon, Palette, Shield, Disc, Maximize2 } from "lucide-react";
+// @ts-ignore
 import { games, apps } from "@/lib/index";
 
 type Theme = 'default' | 'light' | 'dark';
