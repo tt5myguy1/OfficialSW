@@ -161,56 +161,24 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-2 space-y-8">
-                    <div className="glass-panel p-8 rounded-3xl relative overflow-hidden group border border-white/10 bg-white/5">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative z-10">
-                        <h2 className="text-4xl font-black mb-4 tracking-tighter text-white uppercase italic">WELCOME TO SHADOW</h2>
-                        <p className="text-white/60 text-lg max-w-xl leading-relaxed">
-                          Experience the next generation of web gaming. Sleek, fast, and secure. 
-                          Browse our curated collection of games and applications.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 px-2 flex items-center gap-2">
-                        <div className="w-1 h-1 rounded-full bg-primary" />
-                        Latest News
-                      </h3>
-                      <div className="grid grid-cols-1 gap-4">
-                        {news.map((item) => (
-                          <div key={item.id} className="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-all border border-white/10 bg-white/5 group">
-                            <div className="flex justify-between items-start mb-2">
-                              <h4 className="font-bold text-lg text-white group-hover:text-primary transition-colors">{item.title}</h4>
-                              <span className="text-[10px] font-mono text-white/30 uppercase">{item.date}</span>
-                            </div>
-                            <p className="text-sm text-white/60 leading-relaxed">
-                              {item.content}
-                            </p>
+                <div className="grid grid-cols-1 gap-8">
+                  <div className="space-y-4">
+                    <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 px-2 flex items-center gap-2">
+                      <div className="w-1 h-1 rounded-full bg-primary" />
+                      Latest News
+                    </h3>
+                    <div className="grid grid-cols-1 gap-4">
+                      {news.map((item) => (
+                        <div key={item.id} className="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-all border border-white/10 bg-white/5 group">
+                          <div className="flex justify-between items-start mb-2">
+                            <h4 className="font-bold text-lg text-white group-hover:text-primary transition-colors">{item.title}</h4>
+                            <span className="text-[10px] font-mono text-white/30 uppercase">{item.date}</span>
                           </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="glass-panel p-8 rounded-3xl border border-primary/20 bg-primary/5">
-                      <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
-                        <Construction className="w-5 h-5 text-primary" />
-                        System Status
-                      </h3>
-                      <div className="space-y-4">
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-black/20 border border-white/5">
-                          <span className="text-sm text-white/60">Core Systems</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-mono border border-green-500/20">OPERATIONAL</span>
+                          <p className="text-sm text-white/60 leading-relaxed">
+                            {item.content}
+                          </p>
                         </div>
-                        <div className="flex items-center justify-between p-3 rounded-xl bg-black/20 border border-white/5">
-                          <span className="text-sm text-white/60">Game Servers</span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-mono border border-green-500/20">ONLINE</span>
-                        </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
