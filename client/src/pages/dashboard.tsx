@@ -22,7 +22,7 @@ export default function Dashboard() {
       id: 1,
       title: "Incompatible Games",
       date: "Feb 24, 2026",
-      content: "The following games have been removed due to incompatibility: A bite at freddy's, bow masters, google fued. Please let me know on the discord if you find any other games that are incompatible. (If it crashed)" 
+      content: "The following games have been removed due to incompatibility: A bite at freddy's, bow masters, google fued, buckshot roulette. Please let me know on the discord if you find any other games that are incompatible. (If it crashed)" 
     },
     {
       id: 1,

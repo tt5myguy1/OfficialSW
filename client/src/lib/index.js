@@ -25,7 +25,6 @@ export const games = [
   { name: "Binding of Issac: Wrath of the Lamb", img: "images/binding of issac.png", link: "g/Binding of Issac_ Wrath of the Lamb.html" },
   { name: "Block Blast", img: "images/block blast.webp", link: "g/Block Blast.html" },
   { name: "Bridge Race", img: "images/bridge race.webp", link: "g/Bridge Race.html" },
-  { name: "Buckshot Roulette", img: "images/buckshot roulette.png", link: "g/Buckshot" },
   { name: "Celeste", img: "images/celeste.png", link: "g/Celeste.html" },
   { name: "Chat Bot", img: "images/chat bot.jpg", link: "g/Chat Bot (A._.I).html" },
   { name: "CircleO", img: "images/circleo.png", link: "g/CircleO.html" },
