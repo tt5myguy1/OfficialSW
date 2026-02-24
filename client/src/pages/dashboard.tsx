@@ -20,16 +20,10 @@ export default function Dashboard() {
   const news = [
     {
       id: 1,
-      title: "V1.0.3 Update",
+      title: "V1.0.4 Update",
       date: "Feb 24, 2026",
-      content: "Added theme persistence, panic key customization, and fixed DMCA policy display. Fullscreen support for games is now live!"
+      content: "Added theme persistence, panic key customization, and fixed DMCA policy display. Fullscreen support for games is now available."
     },
-    {
-      id: 2,
-      title: "Welcome to Shadow",
-      date: "Feb 23, 2026",
-      content: "The ultimate futuristic game portal is now in Beta. Explore our collection of games and apps with a sleek new interface."
-    }
   ];
 
   useEffect(() => {
@@ -150,7 +144,7 @@ export default function Dashboard() {
                   <div className="flex flex-col items-center gap-4">
                     <div className="px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
                       <span className="font-mono text-primary/80 tracking-[0.2em] text-sm">
-                        V1.0.3
+                        V1.0.4
                       </span>
                     </div>
                     
