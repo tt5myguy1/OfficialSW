@@ -18,11 +18,11 @@ export default function Dashboard() {
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
 
   const news = [
-   {
+    {
       id: 1,
-      title: "A Thank You... or smth idrk",
+      title: "Incompatible Games",
       date: "Feb 24, 2026",
-      content: "Thanks for using my site lol. I hope you enjoy it. If you have any issues, please join the discord and report it. I will try to fix it as soon as possible. (That was the reccommended thing to say by the uhh.. 'thing', idk.)"
+      content: "The following games have been removed due to incompatibility: A bite at freddy's, bow masters, google fued. Please let me know on the discord if you find any other games that are incompatible. (If it crashed)" 
     },
     {
       id: 1,
