@@ -16,6 +16,21 @@ export default function Dashboard() {
   const [panicUrl, setPanicUrl] = useState(() => localStorage.getItem('shadow-panic-url') || 'https://clever.com');
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
 
+  const news = [
+    {
+      id: 1,
+      title: "V1.0.3 Update",
+      date: "Feb 24, 2026",
+      content: "Added theme persistence, panic key customization, and fixed DMCA policy display. Fullscreen support for games is now live!"
+    },
+    {
+      id: 2,
+      title: "Welcome to Shadow",
+      date: "Feb 23, 2026",
+      content: "The ultimate futuristic game portal is now in Beta. Explore our collection of games and apps with a sleek new interface."
+    }
+  ];
+
   useEffect(() => {
     localStorage.setItem('shadow-theme', theme);
     localStorage.setItem('shadow-panic-enabled', panicEnabled.toString());
@@ -297,15 +312,27 @@ export default function Dashboard() {
                     </div>
                     
                     {panicEnabled && (
-                      <div className="flex items-center justify-between pt-2 border-t border-white/5">
-                        <span className="text-sm text-white/60">Trigger Key:</span>
-                        <button 
-                          onClick={() => setIsSettingPanicKey(true)}
-                          className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-xs font-mono transition-colors border border-white/10"
-                        >
-                          {isSettingPanicKey ? 'PRESS ANY KEY...' : panicKey.toUpperCase()}
-                        </button>
-                      </div>
+                      <>
+                        <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
+                          <label className="text-[10px] text-white/40 uppercase tracking-widest font-mono">Redirect URL</label>
+                          <input 
+                            type="text"
+                            value={panicUrl}
+                            onChange={(e) => setPanicUrl(e.target.value)}
+                            placeholder="https://google.com"
+                            className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-white text-xs focus:outline-none focus:border-primary/50 transition-colors"
+                          />
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-white/60">Trigger Key:</span>
+                          <button 
+                            onClick={() => setIsSettingPanicKey(true)}
+                            className="px-3 py-1 rounded bg-white/10 hover:bg-white/20 text-xs font-mono transition-colors border border-white/10"
+                          >
+                            {isSettingPanicKey ? 'PRESS ANY KEY...' : panicKey.toUpperCase()}
+                          </button>
+                        </div>
+                      </>
                     )}
                   </div>
 
