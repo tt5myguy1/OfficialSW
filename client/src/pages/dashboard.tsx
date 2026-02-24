@@ -13,13 +13,15 @@ export default function Dashboard() {
   const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('shadow-theme') as Theme) || 'default');
   const [panicEnabled, setPanicEnabled] = useState(() => localStorage.getItem('shadow-panic-enabled') === 'true');
   const [panicKey, setPanicKey] = useState(() => localStorage.getItem('shadow-panic-key') || 'Escape');
+  const [panicUrl, setPanicUrl] = useState(() => localStorage.getItem('shadow-panic-url') || 'https://clever.com');
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('shadow-theme', theme);
     localStorage.setItem('shadow-panic-enabled', panicEnabled.toString());
     localStorage.setItem('shadow-panic-key', panicKey);
-  }, [theme, panicEnabled, panicKey]);
+    localStorage.setItem('shadow-panic-url', panicUrl);
+  }, [theme, panicEnabled, panicKey, panicUrl]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -30,7 +32,7 @@ export default function Dashboard() {
         return;
       }
       if (panicEnabled && e.key === panicKey) {
-        window.location.replace('https://clever.com');
+        window.location.replace(panicUrl);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
