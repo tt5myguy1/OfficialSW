@@ -129,30 +129,90 @@ export default function Dashboard() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="absolute inset-0 flex items-center justify-center p-12 overflow-y-auto"
+              className="absolute inset-0 overflow-y-auto px-8 pt-24 pb-12 scroll-smooth"
             >
-              <div className="text-center relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse" />
-
-                <h1 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter drop-shadow-2xl mb-2 font-display">
-                  SHADOW
-                  <span className="text-2xl md:text-3xl ml-4 align-top text-primary tracking-widest font-light opacity-80">
-                    [BETA]
-                  </span>
-                </h1>
-                
-                <div className="flex flex-col items-center gap-4 mt-8">
-                  <div className="px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
-                    <span className="font-mono text-primary/80 tracking-[0.2em] text-sm">
-                      V1.0.3
-                    </span>
+              <div className="max-w-6xl mx-auto space-y-12">
+                <div className="text-center space-y-4">
+                  <div className="relative inline-block">
+                    <motion.h1 
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter drop-shadow-2xl font-display"
+                    >
+                      SHADOW
+                      <span className="text-2xl md:text-3xl ml-4 align-top text-primary tracking-widest font-light opacity-80">
+                        [BETA]
+                      </span>
+                    </motion.h1>
                   </div>
                   
-                  <div className="h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
-                  
-                  <p className="text-xl md:text-2xl font-light tracking-wide text-blue-200/80 font-display">
-                    Given away to Trenton
-                  </p>
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                      <span className="font-mono text-primary/80 tracking-[0.2em] text-sm">
+                        V1.0.3
+                      </span>
+                    </div>
+                    
+                    <div className="h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto my-2" />
+                    
+                    <p className="text-xl md:text-2xl font-light tracking-wide text-blue-200/80 font-display">
+                      Given away to Trenton
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  <div className="lg:col-span-2 space-y-8">
+                    <div className="glass-panel p-8 rounded-3xl relative overflow-hidden group border border-white/10 bg-white/5">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative z-10">
+                        <h2 className="text-4xl font-black mb-4 tracking-tighter text-white uppercase italic">WELCOME TO SHADOW</h2>
+                        <p className="text-white/60 text-lg max-w-xl leading-relaxed">
+                          Experience the next generation of web gaming. Sleek, fast, and secure. 
+                          Browse our curated collection of games and applications.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-white/40 px-2 flex items-center gap-2">
+                        <div className="w-1 h-1 rounded-full bg-primary" />
+                        Latest News
+                      </h3>
+                      <div className="grid grid-cols-1 gap-4">
+                        {news.map((item) => (
+                          <div key={item.id} className="glass-panel p-6 rounded-2xl hover:bg-white/5 transition-all border border-white/10 bg-white/5 group">
+                            <div className="flex justify-between items-start mb-2">
+                              <h4 className="font-bold text-lg text-white group-hover:text-primary transition-colors">{item.title}</h4>
+                              <span className="text-[10px] font-mono text-white/30 uppercase">{item.date}</span>
+                            </div>
+                            <p className="text-sm text-white/60 leading-relaxed">
+                              {item.content}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="glass-panel p-8 rounded-3xl border border-primary/20 bg-primary/5">
+                      <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                        <Construction className="w-5 h-5 text-primary" />
+                        System Status
+                      </h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between p-3 rounded-xl bg-black/20 border border-white/5">
+                          <span className="text-sm text-white/60">Core Systems</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-mono border border-green-500/20">OPERATIONAL</span>
+                        </div>
+                        <div className="flex items-center justify-between p-3 rounded-xl bg-black/20 border border-white/5">
+                          <span className="text-sm text-white/60">Game Servers</span>
+                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 font-mono border border-green-500/20">ONLINE</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
