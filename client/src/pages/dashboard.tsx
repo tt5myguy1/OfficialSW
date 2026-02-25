@@ -20,6 +20,12 @@ export default function Dashboard() {
   const news = [
     {
       id: 1,
+      title: "Vercel",
+      date: "Feb 25, 2026",
+      content: "The main site has been blocked in my county."
+    },
+    {
+      id: 1,
       title: "Incompatible Games",
       date: "Feb 24, 2026",
       content: "The following games have been removed due to incompatibility: A bite at freddy's, bow masters, google fued, buckshot roulette. Please let me know on the discord if you find any other games that are incompatible. (If it crashed)" 
