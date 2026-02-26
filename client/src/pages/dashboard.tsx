@@ -211,7 +211,7 @@ export default function Dashboard() {
               <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                   <h2 className="text-4xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 mb-2 uppercase tracking-tight">Game Center</h2>
-                  <p className="text-white/40 font-mono text-xs uppercase tracking-widest">Selected Titles for Trenton</p>
+                  <p className="text-white/40 font-mono text-xs uppercase tracking-widest">Play W Games</p>
                 </div>
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 max-w-full">
                   {games.map((game: any, i: number) => (
@@ -265,7 +265,7 @@ export default function Dashboard() {
               <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                   <h2 className="text-4xl font-black font-display text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 mb-2 uppercase tracking-tight">Applications</h2>
-                  <p className="text-white/40 font-mono text-xs uppercase tracking-widest">Utility & Entertainment Suite</p>
+                  <p className="text-white/40 font-mono text-xs uppercase tracking-widest">Apps that's not a game.</p>
                 </div>
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-10 max-w-full">
                   {apps.map((app: any, i: number) => (
@@ -457,7 +457,7 @@ export default function Dashboard() {
                 </div>
                 
                 <p className="text-white/60 leading-relaxed">
-                  We've upgraded our systems to bring you a faster, more secure, and more beautiful experience. Welcome to the future of web gaming.
+                  Welcome to Pulse V2.0.0. For now, sites will still be named officialsw, and will eventully be stopped soon and no longer be avalible..
                 </p>
                 
                 <button 
