@@ -447,8 +447,8 @@ export default function Dashboard() {
               </button>
               
               <div className="flex flex-col items-center text-center space-y-6">
-                <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#3500ff] to-[#af00ff] flex items-center justify-center shadow-[0_0_30px_rgba(53,0,255,0.5)] animate-pulse">
-                  <Gamepad2 className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 rounded-3xl bg-black border-2 border-primary flex items-center justify-center shadow-[0_0_30px_rgba(53,0,255,0.5)] animate-pulse">
+                  <span className="text-4xl font-black font-display text-transparent bg-clip-text bg-gradient-to-br from-[#3500ff] to-[#af00ff]">P</span>
                 </div>
                 
                 <div className="space-y-2">
@@ -464,7 +464,7 @@ export default function Dashboard() {
                   onClick={() => setShowAnnouncement(false)}
                   className="w-full py-4 rounded-2xl bg-primary text-white font-bold font-display uppercase tracking-widest hover:bg-primary/80 transition-all shadow-xl shadow-primary/20"
                 >
-                  Enter Experience
+                  Continue
                 </button>
               </div>
             </motion.div>
