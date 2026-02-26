@@ -5,29 +5,29 @@
 @tailwind utilities;
 
 :root {
-  /* Deep Blue / Shadow Theme (Default) */
-  --background: 222 47% 6%; /* #080c16 - Very dark blue */
-  --background-hex: #080c16;
-  --primary-hex: 6, 182, 212;
-  --foreground: 210 40% 98%; /* White text */
-  --card: 222 47% 10%;
+  /* Pulse Theme (V2.0.0) */
+  --background: 270 100% 2%; /* Extremely dark purple/black */
+  --background-hex: #05000a;
+  --primary-hex: 53, 0, 255;
+  --primary: 252 100% 50%; /* #3500ff */
+  --accent: 281 100% 50%; /* #af00ff */
+  --foreground: 210 40% 98%;
+  --card: 270 100% 5%;
   --card-foreground: 210 40% 98%;
-  --popover: 222 47% 10%;
+  --popover: 270 100% 5%;
   --popover-foreground: 210 40% 98%;
-  --primary: 199 89% 48%; /* Bright Cyan for accents */
-  --primary-foreground: 222 47% 11%;
-  --secondary: 217 33% 17%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 270 50% 10%;
   --secondary-foreground: 210 40% 98%;
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20% 65%;
-  --accent: 199 89% 48%;
-  --accent-foreground: 222 47% 11%;
+  --muted: 270 50% 10%;
+  --muted-foreground: 270 20% 65%;
+  --accent-foreground: 210 40% 98%;
   --destructive: 0 63% 31%;
   --destructive-foreground: 210 40% 98%;
-  --border: 217 33% 20%;
-  --input: 217 33% 20%;
-  --ring: 199 89% 48%;
-  --radius: 0.75rem;
+  --border: 270 50% 15%;
+  --input: 270 50% 15%;
+  --ring: 252 100% 50%;
+  --radius: 1rem;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Orbitron', sans-serif;
 }
@@ -91,10 +91,10 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    text-shadow: 0 0 20px rgba(53, 0, 255, 0.5), 0 0 40px rgba(175, 0, 255, 0.3);
   }
   
   .glass-panel {
-    @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl;
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
   }
 }

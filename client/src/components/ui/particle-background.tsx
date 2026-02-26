@@ -45,13 +45,12 @@ export function ParticleBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       const rootStyles = getComputedStyle(document.documentElement);
-      const bgColor = rootStyles.getPropertyValue('--background-hex').trim() || '#020617';
-      const particleColor = rootStyles.getPropertyValue('--primary-hex').trim() || '100, 200, 255';
+      const bgColor = rootStyles.getPropertyValue('--background-hex').trim() || '#05000a';
       
       ctx.fillStyle = bgColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach(p => {
+      particles.forEach((p, i) => {
         p.x += p.dx;
         p.y += p.dy;
 
@@ -60,7 +59,9 @@ export function ParticleBackground() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${particleColor}, ${p.opacity})`;
+        // Alternate between primary and accent colors
+        const color = i % 2 === 0 ? '53, 0, 255' : '175, 0, 255';
+        ctx.fillStyle = `rgba(${color}, ${p.opacity})`;
         ctx.fill();
       });
 

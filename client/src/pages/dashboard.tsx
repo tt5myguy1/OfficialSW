@@ -11,38 +11,38 @@ type Theme = 'default' | 'light' | 'dark';
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState<TabId>('home');
   const [runningItem, setRunningItem] = useState<{ name: string; link: string } | null>(null);
-  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('shadow-theme') as Theme) || 'default');
-  const [panicEnabled, setPanicEnabled] = useState(() => localStorage.getItem('shadow-panic-enabled') === 'true');
-  const [panicKey, setPanicKey] = useState(() => localStorage.getItem('shadow-panic-key') || 'Escape');
-  const [panicUrl, setPanicUrl] = useState(() => localStorage.getItem('shadow-panic-url') || 'https://clever.com');
+  const [theme, setTheme] = useState<Theme>(() => (localStorage.getItem('pulse-theme') as Theme) || 'default');
+  const [panicEnabled, setPanicEnabled] = useState(() => localStorage.getItem('pulse-panic-enabled') === 'true');
+  const [panicKey, setPanicKey] = useState(() => localStorage.getItem('pulse-panic-key') || 'Escape');
+  const [panicUrl, setPanicUrl] = useState(() => localStorage.getItem('pulse-panic-url') || 'https://clever.com');
   const [isSettingPanicKey, setIsSettingPanicKey] = useState(false);
 
   const news = [
     {
       id: 1,
+      title: "Pulse Launch",
+      date: "Feb 26, 2026",
+      content: "Welcome to Pulse V2.0.0. We've completely reimagined the interface with a focus on speed and aesthetics. Enjoy the new electric purple and deep blue theme."
+    },
+    {
+      id: 2,
       title: "Vercel",
       date: "Feb 25, 2026",
       content: "The main site has been blocked in my county."
     },
     {
-      id: 1,
+      id: 3,
       title: "Incompatible Games",
       date: "Feb 24, 2026",
       content: "The following games have been removed due to incompatibility: A bite at freddy's, bow masters, google fued, buckshot roulette. Please let me know on the discord if you find any other games that are incompatible. (If it crashed)" 
     },
-    {
-      id: 1,
-      title: "V1.0.4 Update",
-      date: "Feb 24, 2026",
-      content: "Added theme persistence, panic key customization, and fixed DMCA policy display. Fullscreen support for games is now available."
-    },
   ];
 
   useEffect(() => {
-    localStorage.setItem('shadow-theme', theme);
-    localStorage.setItem('shadow-panic-enabled', panicEnabled.toString());
-    localStorage.setItem('shadow-panic-key', panicKey);
-    localStorage.setItem('shadow-panic-url', panicUrl);
+    localStorage.setItem('pulse-theme', theme);
+    localStorage.setItem('pulse-panic-enabled', panicEnabled.toString());
+    localStorage.setItem('pulse-panic-key', panicKey);
+    localStorage.setItem('pulse-panic-url', panicUrl);
   }, [theme, panicEnabled, panicKey, panicUrl]);
 
   useEffect(() => {
@@ -144,19 +144,19 @@ export default function Dashboard() {
                     <motion.h1 
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter drop-shadow-2xl font-display"
+                      className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#3500ff] to-[#af00ff] tracking-tighter drop-shadow-[0_0_30px_rgba(53,0,255,0.5)] font-display"
                     >
-                      SHADOW
-                      <span className="text-2xl md:text-3xl ml-4 align-top text-primary tracking-widest font-light opacity-80">
+                      PULSE
+                      <span className="text-2xl md:text-3xl ml-4 align-top text-accent tracking-widest font-light opacity-80">
                         [BETA]
                       </span>
                     </motion.h1>
                   </div>
                   
                   <div className="flex flex-col items-center gap-4">
-                    <div className="px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                    <div className="px-4 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_20px_rgba(53,0,255,0.2)]">
                       <span className="font-mono text-primary/80 tracking-[0.2em] text-sm">
-                        V1.0.4
+                        V2.0.0
                       </span>
                     </div>
                     

@@ -32,22 +32,21 @@ export function TopBar({ activeTab, onTabChange }: TopBarProps) {
               onClick={() => onTabChange(tab.id)}
               className={cn(
                 "relative group flex items-center justify-center p-2 rounded-full transition-all duration-300",
-                isActive ? "bg-white/10" : "hover:bg-white/5"
+                isActive ? "bg-primary/20 shadow-[0_0_15px_rgba(53,0,255,0.3)]" : "hover:bg-white/5"
               )}
               aria-label={tab.label}
             >
               <Icon 
                 className={cn(
                   "w-5 h-5 transition-all duration-300",
-                  "text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]",
-                  isActive ? "scale-110 drop-shadow-[0_0_12px_rgba(255,255,255,0.6)]" : "opacity-80 group-hover:opacity-100"
+                  isActive ? "text-primary scale-110 drop-shadow-[0_0_12px_rgba(53,0,255,0.6)]" : "text-white/70 group-hover:text-white group-hover:opacity-100"
                 )} 
               />
               
               {isActive && (
                 <motion.div
                   layoutId="active-dot"
-                  className="absolute -bottom-1 w-1 h-1 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                  className="absolute -bottom-1 w-1 h-1 bg-primary rounded-full shadow-[0_0_8px_rgba(53,0,255,0.8)]"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
