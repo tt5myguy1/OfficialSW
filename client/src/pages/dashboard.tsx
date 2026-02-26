@@ -31,7 +31,7 @@ export default function Dashboard() {
       id: 1,
       title: "Pulse Launch",
       date: "Feb 26, 2026",
-      content: "Welcome to Pulse V2.0.0. We've completely reimagined the interface with a focus on speed and aesthetics. Enjoy the new electric purple and deep blue theme."
+      content: "Welcome to Pulse V2.0.0. For now, sites will still be named officialsw, and will eventully be stopped soon and no longer be avalible."
     },
     {
       id: 2,
