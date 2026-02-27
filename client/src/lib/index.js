@@ -144,6 +144,7 @@ export const games = [
   { name: "Ultrakill", img: "images/ultrakill.png", link: "g/Ultrakill.html" },
   { name: "Undertale", img: "images/undertale.webp", link: "g/Undertale.html" },
   { name: "Undertale Yellow", img: "images/undertale yellow.webp", link: "g/Undertale Yellow.html" },
+    { name: "Untitled Goose Game", img: "images/IMG_0734", link: "g/Untitled Goose Game.html" },
   { name: "Web Fishing", img: "images/web fishing.png", link: "g/Web Fishing.html" },
   { name: "Wordle", img: "images/wordle.webp", link: "g/Wordle.html" },
   { name: "Worlds Hardest Game", img: "images/worldshardestgame.webp", link: "g/Worlds Hardest Game.html" },
