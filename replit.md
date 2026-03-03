@@ -20,7 +20,9 @@ Preferred communication style: Simple, everyday language.
 - **Animations**: framer-motion for smooth transitions
 - **Background**: Custom Canvas-based particle system (no external dependency)
 - **Path aliases**: `@/` maps to `client/src/`, `@shared/` maps to `shared/`
-- **Entry point**: `client/src/main.tsx` → `App.tsx` → `Dashboard` page
+### Entry Point
+- Root `index.html`: The main entry point for the application, used for both local development and production deployments (like GitHub Pages). It points to `./client/src/main.tsx`.
+- `client/index.html`: Development-specific entry point used by Vite's internal processes.
 
 ### Backend
 - **Framework**: Express.js running on Node with TypeScript (via tsx)
